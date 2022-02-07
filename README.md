@@ -10,7 +10,7 @@ Before adding vaf to you project you need to check if you have the right audio c
 
 For windows users, you have to install the software "sox" in version 14.4.1 or lower.<br />
 It also needs to be added to windows PATH environment so it can work in command line.<br />
-[sox 144.1](https://sourceforge.net/projects/sox/files/sox/14.4.1/(https://sourceforge.net/projects/sox/files/sox/14.4.1/)<br />
+[https://sourceforge.net/projects/sox/files/sox/14.4.1/(https://sourceforge.net/projects/sox/files/sox/14.4.1/](https://sourceforge.net/projects/sox/files/sox/14.4.1/(https://sourceforge.net/projects/sox/files/sox/14.4.1/)<br />
 
 On Debian/Ubuntu, the ALSA backend is needed, so be sure to have the alsa.h header file in place :<br />
 
