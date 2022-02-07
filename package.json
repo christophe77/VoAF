@@ -1,6 +1,6 @@
 {
   "name": "voice-assistant-framework",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "core/index.js",
   "license": "MIT",
   "scripts": {
