@@ -1,0 +1,22 @@
+{
+  "name": "voice-assistant-framework",
+  "version": "1.0.0",
+  "main": "core/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./example/index.js",
+    "lint": "npx eslint . --ext .js,.ts --fix"
+  },
+  "dependencies": {
+    "@google-cloud/speech": "^4.10.0",
+    "@google-cloud/text-to-speech": "^3.4.0",
+    "dotenv": "^16.0.0",
+    "node-record-lpcm16": "^1.0.1",
+    "speaker": "^0.5.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4"
+  }
+}
