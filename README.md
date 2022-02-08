@@ -1,6 +1,6 @@
-# Voice assistant framework (VAF)
+# VAF, Voice Assistant Framework
 
-Voice assistant framework is a package dedicated to text to speech and speech to text.<br />
+VAF is a package dedicated to text to speech and speech to text.<br />
 It uses google cloud plateform services and can be ran on all OS platforms including raspberry pi.<br />
 If the readme is not comprehensive enough or if you have any configuration problems feel free to open an issue.<br />
 
@@ -18,10 +18,10 @@ On Debian/Ubuntu, the ALSA backend is needed, so be sure to have the alsa.h head
 
 Then you can add vaf as a dependency.
 
-    yarn add voice-assistant-framework
-    npm install voice-assistant-framework
+    yarn add vaf
+    npm install vaf
 
-Vaf uses google text to speech and speech to text. You need to have a google account in google cloud platform, to enable both API and to generate a service licence key.<br/>
+Vaf uses google text to speech and speech to text. You need to have an account in google cloud platform, to enable both API and to generate a service licence key.<br/>
 Once you have the key, put the json file at the root of your folder and add a .env file with the following entry :<br />
 
     GOOGLE_APPLICATION_CREDENTIALS="./google-service-key.json"
@@ -50,14 +50,24 @@ languageCode and ssmlGender are the voice language and gender. You can find a li
 
 Then you have to feed the assistant with some commands and actions.<br />
 
+Single command :
+
     function testFunctionCommand(text) {
         console.log(text);
     }
-    const command1 = {
+    const singleCommand = {
         keyword: "deezer",
+        action: () => {
+                const deezerPath = "./deezer.exe";
+                testFunctionCommand(`Deezer path is ${deezerPath}`);
+        },
         answers: ["I can do that.", "Ok wait.", "Of course."],
     }
-    const commandList = [
+    vaf.addCommand(singleCommand);
+
+Array of commands :
+
+    const arrayCommands = [
         {
             keyword: "spotify",
             answers: ["I can do that.", "Ok wait.", "Of course."],
@@ -65,14 +75,13 @@ Then you have to feed the assistant with some commands and actions.<br />
         {
             keyword: "netflix",
             action: () => {
-            const four = 2 * 2;
-            testFunctionCommand(`hi from netflix. 2 x 2 = ${four}`);
+                const four = 2 * 2;
+                testFunctionCommand(`hi from netflix. 2 x 2 = ${four}`);
             },
             answers: ["I can do that.", "Ok wait.", "Of course."],
         },
     ];
-    vaf.addCommands(commandList);
-    vaf.addCommand(command1);
+    vaf.addCommands(arrayCommands);
 
 Finally you start !
 

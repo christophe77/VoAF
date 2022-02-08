@@ -1,5 +1,6 @@
 {
-  "name": "voice-assistant-framework",
+  "name": "vaf",
+  "description": "VAF : node js Voice Assistant Framework using google text to speech and speech to text.",
   "version": "1.0.4",
   "main": "core/index.js",
   "license": "MIT",
