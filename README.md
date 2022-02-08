@@ -12,12 +12,23 @@ Before adding VoAF to you project you need to check if you have the right audio 
 
 The first thing to install is "sox" in version 14.4.1 or lower.<br />
 Sox is used for recording audio.<br />
-For windows users, it needs to be added to windows PATH environment.<br />
+
+#### For Mac OS
+
+    brew install sox
+
+#### For linux
+
+    sudo apt-get install sox libsox-fmt-all
+
+#### For windows
+
 [sox 14.4.1 for windows](https://sourceforge.net/projects/sox/files/sox/14.4.1/)<br />
+It also needs to be added to your PATH environment.<br />
 
 ### ALSA
 
-For linux OS, the ALSA backend is needed, so be sure to have the alsa.h header file in place :<br />
+For linux OS, the ALSA backend is needed for playing audio, so be sure to have the alsa.h header file in place :<br />
 
     sudo apt-get install libasound2-dev
 
