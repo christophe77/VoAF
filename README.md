@@ -28,7 +28,8 @@ It also needs to be added to your PATH environment.<br />
 
 ### ALSA
 
-For linux OS, the ALSA backend is needed for playing audio, so be sure to have the alsa.h header file in place :<br />
+For linux OS, the ALSA backend is needed for playing audio, so be sure to have the alsa.h header file in place.<br />
+The header has different names, libasound2-dev or alsa-lib-dev. Try apt search alsa if it's not one of them.<br />
 
     sudo apt-get install libasound2-dev
 
