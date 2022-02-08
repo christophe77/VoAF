@@ -1,32 +1,41 @@
-# VAF, Voice Assistant Framework
+# VoAF, Voice Assistant Framework
 
-VAF is a package dedicated to text to speech and speech to text.<br />
+VoAF is a package dedicated to text to speech and speech to text.<br />
 It uses google cloud plateform services and can be ran on all OS platforms including raspberry pi.<br />
 If the readme is not comprehensive enough or if you have any configuration problems feel free to open an issue.<br />
 
 ## Installation
 
-Before adding vaf to you project you need to check if you have the right audio configuration.
+Before adding VoAF to you project you need to check if you have the right audio configuration.
 
-For windows users, you have to install the software "sox" in version 14.4.1 or lower.<br />
-It also needs to be added to windows PATH environment so it can work in command line.<br />
-[sox 14.4.1](https://sourceforge.net/projects/sox/files/sox/14.4.1/)<br />
+### sox
 
-On Debian/Ubuntu, the ALSA backend is needed, so be sure to have the alsa.h header file in place :<br />
+The first thing to install is "sox" in version 14.4.1 or lower.<br />
+Sox is used for recording audio.<br />
+For windows users, it needs to be added to windows PATH environment.<br />
+[sox 14.4.1 for windows](https://sourceforge.net/projects/sox/files/sox/14.4.1/)<br />
+
+### ALSA
+
+For linux OS, the ALSA backend is needed, so be sure to have the alsa.h header file in place :<br />
 
     sudo apt-get install libasound2-dev
 
-Then you can add vaf as a dependency.
+### Google Cloud Platform
 
-    yarn add vaf
-    npm install vaf
-
-Vaf uses google text to speech and speech to text. You need to have an account in google cloud platform, to enable both API and to generate a service licence key.<br/>
+VoAF uses google text to speech and speech to text. You need to have an account in google cloud platform, to enable both API and to generate a service licence key.<br/>
 Once you have the key, put the json file at the root of your folder and add a .env file with the following entry :<br />
 
     GOOGLE_APPLICATION_CREDENTIALS="./google-service-key.json"
 
 Of course you replace google-service-key.json with your own key name or you can rename your json key to google-service-key.json.<br />
+
+### Package
+
+Then you can add VoAF as a dependency.
+
+    yarn add voaf
+    npm install voaf
 
 ## Usage
 
@@ -40,7 +49,7 @@ If you don't then the default config will be : <br />
         languageCode: "en-US",
         ssmlGender: "NEUTRAL",
     };
-    vaf.setConfig(config);
+    voaf.setConfig(config);
 
 masterKeyword : string : word for the assistant to start listening for a command.<br />
 masterAnswer : string : answer of the assistant when he hears the masterKeyword.<br />
@@ -49,21 +58,25 @@ languageCode and ssmlGender are the voice language and gender. You can find a li
 [https://cloud.google.com/text-to-speech/docs/voices](https://cloud.google.com/text-to-speech/docs/voices)<br />
 
 Then you have to feed the assistant with some commands and actions.<br />
+The command object is like this :
+
+        {
+            keyword: required string,
+            action: optional function,
+            answers: required string array,
+        }
 
 Single command :
 
-    function testFunctionCommand(text) {
-        console.log(text);
-    }
     const singleCommand = {
         keyword: "deezer",
         action: () => {
                 const deezerPath = "./deezer.exe";
-                testFunctionCommand(`Deezer path is ${deezerPath}`);
+                console.log(`Deezer path is ${deezerPath}`);
         },
         answers: ["I can do that.", "Ok wait.", "Of course."],
     }
-    vaf.addCommand(singleCommand);
+    voaf.addCommand(singleCommand);
 
 Array of commands :
 
@@ -76,13 +89,13 @@ Array of commands :
             keyword: "netflix",
             action: () => {
                 const four = 2 * 2;
-                testFunctionCommand(`hi from netflix. 2 x 2 = ${four}`);
+                console.log(`hi from netflix. 2 x 2 = ${four}`);
             },
             answers: ["I can do that.", "Ok wait.", "Of course."],
         },
     ];
-    vaf.addCommands(arrayCommands);
+    voaf.addCommands(arrayCommands);
 
 Finally you start !
 
-    vaf.startRecording();
+    voaf.startRecording();

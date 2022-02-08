@@ -1,4 +1,4 @@
-const vaf = require("..");
+const voaf = require("..");
 
 const config = {
   masterKeyword: "slave",
@@ -8,11 +8,17 @@ const config = {
   ssmlGender: "NEUTRAL",
 };
 
-function testFunctionCommand(text) {
-  console.log(text);
-}
+const singleCommand = {
+  keyword: "deezer",
+  action: () => {
+    const deezerPath = "./deezer.exe";
+    console.log(`Deezer path is ${deezerPath}`);
+  },
+  answers: ["I can do that.", "Ok wait.", "Of course."],
+};
+voaf.addCommand(singleCommand);
 
-const commandList = [
+const arrayCommands = [
   {
     keyword: "spotify",
     answers: ["I can do that.", "Ok wait.", "Of course."],
@@ -21,12 +27,13 @@ const commandList = [
     keyword: "netflix",
     action: () => {
       const four = 2 * 2;
-      testFunctionCommand(`hi from netflix. 2 x 2 = ${four}`);
+      console.log(`hi from netflix. 2 x 2 = ${four}`);
     },
     answers: ["I can do that.", "Ok wait.", "Of course."],
   },
 ];
+voaf.addCommands(arrayCommands);
 
-vaf.setConfig(config);
-vaf.addCommands(commandList);
-vaf.startRecording();
+voaf.setConfig(config);
+voaf.addCommands(arrayCommands);
+voaf.startRecording();

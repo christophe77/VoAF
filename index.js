@@ -58,10 +58,10 @@ async function commandCallback(command) {
 
 const { startRecording } = useStt(config, commandCallback);
 
-const vaf = {
+const voaf = {
   setConfig,
   startRecording,
   addCommand,
   addCommands,
 };
-module.exports = vaf;
+module.exports = voaf;
