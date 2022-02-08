@@ -61,7 +61,7 @@ Then you have to feed the assistant with some commands and actions.<br />
 The command object is like this :
 
         {
-            keyword: required string,
+            keywords: required string array,
             action: optional function,
             answers: required string array,
         }
@@ -69,7 +69,7 @@ The command object is like this :
 Single command :
 
     const singleCommand = {
-        keyword: "deezer",
+        keywords: ["deezer"],
         action: () => {
                 const deezerPath = "./deezer.exe";
                 console.log(`Deezer path is ${deezerPath}`);
@@ -82,11 +82,11 @@ Array of commands :
 
     const arrayCommands = [
         {
-            keyword: "spotify",
+            keywords: ["spotify"],
             answers: ["I can do that.", "Ok wait.", "Of course."],
         },
         {
-            keyword: "netflix",
+            keywords: ["netflix", "netfleex"],
             action: () => {
                 const four = 2 * 2;
                 console.log(`hi from netflix. 2 x 2 = ${four}`);

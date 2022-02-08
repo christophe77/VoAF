@@ -9,7 +9,7 @@ const config = {
 };
 
 const singleCommand = {
-  keyword: "deezer",
+  keywords: ["deezer"],
   action: () => {
     const deezerPath = "./deezer.exe";
     console.log(`Deezer path is ${deezerPath}`);
@@ -20,11 +20,11 @@ voaf.addCommand(singleCommand);
 
 const arrayCommands = [
   {
-    keyword: "spotify",
+    keywords: ["spotify"],
     answers: ["I can do that.", "Ok wait.", "Of course."],
   },
   {
-    keyword: "netflix",
+    keywords: ["netflix", "netfleex"],
     action: () => {
       const four = 2 * 2;
       console.log(`hi from netflix. 2 x 2 = ${four}`);

@@ -9,10 +9,11 @@ function addCommand(command) {
 function addCommands(commands) {
   commands.map((command) => commandList.push(command));
 }
+
 function parseCommandText(commandText) {
   const text = commandText.toLowerCase();
   const answerArray = commandList.filter((command) =>
-    text.includes(command.keyword)
+    command.keywords.some((keyword) => text.includes(keyword))
   );
   if (answerArray?.length > 0) {
     if (answerArray[0].action) {
