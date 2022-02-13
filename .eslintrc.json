@@ -4,7 +4,8 @@
     "commonjs": true,
     "es2021": true
   },
-  "extends": ["airbnb-base"],
+  "plugins": ["sonarjs"],
+  "extends": ["airbnb-base","plugin:sonarjs/recommended"],
   "parserOptions": {
     "ecmaVersion": "latest"
   },

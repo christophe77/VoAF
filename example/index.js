@@ -14,7 +14,7 @@ const singleCommand = {
     const deezerPath = "./deezer.exe";
     console.log(`Deezer path is ${deezerPath}`);
   },
-  answers: ["I can do that.", "Ok wait.", "Of course."],
+  answers: ["All right.", "Ok wait.", "Yes!"],
 };
 voaf.addCommand(singleCommand);
 
