@@ -6,8 +6,8 @@ function addCommand(command) {
   commandList.push(command);
 }
 
-function addCommands(commands) {
-  commands.map((command) => commandList.push(command));
+function addCommands(commandArray) {
+  commandArray.map((command) => commandList.push(command));
 }
 
 function parseCommandText(commandText) {
